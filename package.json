@@ -5,10 +5,22 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "prepare": "husky",
+    "preview": "vite preview",
+    "lint:fix": "eslint . --fix",
+    "build": "tsc -b && vite build",
+    "lint:scss": "stylelint \"src/**/*.scss\"",
+    "lint:scss:fix": "stylelint \"src/**/*.scss\" --fix"    
   },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ],
+    "*.scss": [
+      "stylelint --fix"
+    ]
+  },  
   "dependencies": {
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
