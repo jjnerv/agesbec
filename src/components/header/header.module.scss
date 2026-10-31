@@ -1,0 +1,44 @@
+.container {
+    width: 100%;
+    display: flex;
+    padding: 5px;
+    flex-direction: row;
+    background-color: #9400FF;
+
+    .logo {
+        margin: 10px;
+        width: 4%;
+    }
+
+    .navigation {
+        width: 100%;
+        display: flex;
+        gap: 50px;
+        margin-left: 40px;
+        letter-spacing: 1px;
+        align-items: center;
+        place-content: center center;
+
+            li {
+                list-style: none;
+
+                a {
+                    color: #fff;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .logout {
+            background-color: #27005D;
+            border-radius: 10px;
+            flex-direction: column;
+            align-items: center; 
+            align-content: center;
+            margin: 10px 20px;
+            height: 40px;
+            width: 110px;
+            color: #fff;
+            text-align: center;
+        }
+}

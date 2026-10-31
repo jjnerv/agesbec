@@ -5,7 +5,6 @@ import { MemoryRouter, Route, Routes } from "react-router-dom";
 import Login from "../login"
 import { NotificationProvider } from "../../../shared/notifications/NotificationContext";
 import { AuthProvider } from "../../../features/auth/context/AuthContext";
-import { getFirstValidationError } from "../utils/getFirstValidationError";
 
 function renderLogin() {
   return render(

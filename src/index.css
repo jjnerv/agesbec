@@ -10,4 +10,11 @@
 
 body {
     font-family: "Roboto";
+    min-height: 100vh;
+    background: #f4f6f8 url('login-bg.png') no-repeat center;
+    background-size: 100%;
+}
+
+a {
+  text-decoration: none;
 }
