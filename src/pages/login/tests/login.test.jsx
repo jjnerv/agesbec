@@ -26,7 +26,7 @@ describe("Login", () => {
     vi.clearAllMocks();
   });
 
-  it("mostra a validação ao clicar no submit", async () => {
+  it("mostra a validação de e-mail se não preecnher e clicar no submit", async () => {
     const user = userEvent.setup();
     renderLogin();
 
@@ -34,6 +34,31 @@ describe("Login", () => {
 
     expect(
         await screen.findByText("Informe um e-mail válido"),
+    ).toBeInTheDocument();
+  });
+
+  it("mostra a validação de senha se não preenher e clicar no submit", async () => {
+    const user = userEvent.setup();
+    renderLogin();
+
+    await user.type(screen.getByLabelText(/E-mail/i), "ana@email.com");
+    await user.click(screen.getByRole("button", { name: /Entrar/i }));
+
+    expect(
+        await screen.findByText("A senha deve ter pelo menos 5 caracteres"),
+    ).toBeInTheDocument();
+  });
+
+  it("mostra a validação de senha se não preenher 5 caracters e clicar no submit", async () => {
+    const user = userEvent.setup();
+    renderLogin();
+
+    await user.type(screen.getByLabelText(/E-mail/i), "ana@email.com");
+    await user.type(screen.getByLabelText(/Senha/i), "senh");
+    await user.click(screen.getByRole("button", { name: /Entrar/i }));
+
+    expect(
+        await screen.findByText("A senha deve ter pelo menos 5 caracteres"),
     ).toBeInTheDocument();
   });
 
