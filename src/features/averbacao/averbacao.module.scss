@@ -1,0 +1,56 @@
+ @use "../../styles/colors" as colors;
+  
+.container {
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: colors.$white;
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+        background-color: colors.$white;
+        color: colors.$black-color;
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid colors.$border-color;
+        }
+
+        th {
+            background-color: colors.$light-gray;
+        }
+    }
+
+    .paginacao {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+
+        span {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: colors.$primary;
+            color: colors.$white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+
+            &:disabled {
+                background-color: colors.$light-gray;
+                cursor: not-allowed;
+            }
+        }
+    }
+}

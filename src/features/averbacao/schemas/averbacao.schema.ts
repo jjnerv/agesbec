@@ -17,6 +17,7 @@ export const averbacaoSchema = z.object({
   referencia: z.number(),
   cambial: z.boolean(),
   statusId: z.number(),
+  status: z.string(),
   chave: z.string(),
   modalId: z.number().int(),
 });

@@ -15,8 +15,6 @@ export async function buscarAverbacoesPorModal(
 
   const response = await fetch(url, { signal });
 
-  // console.log('response', await response.json());
-
   if (!response.ok) {
     throw new Error("Não foi possível carregar as averbações.");
   }

@@ -19,7 +19,9 @@ function Header() {
         <li><a href="#">Consulta</a></li>
       </nav>
 
-      <a href="#" className={styles.logout} onClick={handleLogout}>Logout</a>
+      <a href="#" className={styles.logout} onClick={handleLogout}>
+        Logout
+      </a>
     </main>
   );
 }

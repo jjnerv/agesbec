@@ -1,3 +1,3 @@
-import AverbacaoTable from "../AverbacaoTable";
+import AverbacaoTable from "./AverbacaoTable";
 
 export default AverbacaoTable;
