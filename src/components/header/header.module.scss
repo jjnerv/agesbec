@@ -1,45 +1,111 @@
 @use "../../styles/colors" as colors;
 
 .container {
-    display: flex;
-    padding: 5px;
-    flex-direction: row;
-    background-color: colors.$primary;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  min-height: 68px;
+  padding: 6px 24px;
+  background: colors.$primary;
+}
 
-    .logo {
-        margin: 10px;
-        width: 4%;
+.logo {
+  display: block;
+  width: auto;
+  max-width: 150px;
+  max-height: 48px;
+  object-fit: contain;
+}
+
+.navigation {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  margin: 0 24px;
+  letter-spacing: 1px;
+
+  ul {
+    display: flex;
+    align-items: center;
+    gap: clamp(20px, 4vw, 52px);
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  li { list-style: none; }
+
+  a {
+    color: colors.$white;
+    text-decoration: none;
+
+    &:hover, &:focus-visible { text-decoration: underline; }
+  }
+}
+
+.logout-item { margin-left: auto; }
+
+.logout {
+  min-width: 110px;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 10px;
+  background: colors.$text;
+  color: colors.$white;
+  font: inherit;
+  cursor: pointer;
+
+  &:hover, &:focus-visible { filter: brightness(1.15); }
+}
+
+.menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-left: auto;
+  border: 1px solid rgb(255 255 255 / 45%);
+  border-radius: 8px;
+  background: transparent;
+  color: colors.$white;
+  cursor: pointer;
+}
+
+@media (width <= 700px) {
+  .container {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 8px 16px;
+  }
+
+  .menu-toggle { display: inline-flex; }
+
+  .navigation {
+    display: none;
+    flex: 0 0 calc(100% + 32px);
+    margin: 8px -16px -8px;
+    padding: 8px 16px 16px;
+    background: colors.$primary;
+
+    ul {
+      align-items: stretch;
+      flex-direction: column;
+      gap: 0;
     }
 
-    .navigation {
-        width: 100%;
-        display: flex;
-        gap: 50px;
-        margin-left: 40px;
-        letter-spacing: 1px;
-        align-items: center;
-        place-content: center center;
+    li { width: 100%; }
 
-            li {
-                list-style: none;
+    a {
+      display: block;
+      padding: 13px 8px;
+    }
+  }
 
-                a {
-                    color: colors.$white;
-                    text-decoration: none;
-                }
-            }
-        }
-
-        .logout {
-            background-color: colors.$text;
-            border-radius: 10px;
-            flex-direction: column;
-            align-items: center; 
-            align-content: center;
-            margin: 10px 20px;
-            height: 40px;
-            width: 120px;
-            color: colors.$white;
-            text-align: center;
-        }
+  .navigation-open { display: flex; }
+  .logout-item { margin: 8px 0 0; }
+  .logout { width: 100%; }
 }

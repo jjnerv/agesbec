@@ -14,7 +14,7 @@ export const averbacaoSchema = z.object({
   di: z.number(),
   arquivos: z.array(z.string()),
   comissaria: z.number(),
-  referencia: z.number(),
+  referencia: z.number().nullable().transform((value) => value ?? 0),
   cambial: z.boolean(),
   statusId: z.number(),
   status: z.string(),

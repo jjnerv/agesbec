@@ -1,0 +1,184 @@
+@use "../../styles/colors" as colors;
+  
+.form { 
+  display: grid; 
+  gap: 20px; 
+}
+
+.process-choice,
+.cambial {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+
+  legend { 
+    flex-basis: 100%; 
+    margin-bottom: 8px; 
+    font-size: .9rem; 
+    font-weight: 700; 
+  }
+
+  label { 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 8px; cursor: pointer; 
+  }
+}
+
+.process-choice { 
+  flex-wrap: wrap; 
+}
+
+.process-choice label { 
+  min-width: 100px; 
+  padding: 10px 14px; 
+  border: 1px solid #ded8e5; 
+  border-radius: 8px; 
+}
+
+.selected-option { 
+  border-color: colors.$primary !important; 
+  background: #f6edff; 
+}
+.required { color: colors.$error; }
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 16px;
+
+  > label { 
+    display: grid; 
+    align-content: start; 
+    gap: 7px; 
+    font-size: .9rem; 
+    font-weight: 600;
+  }
+
+  input {
+    width: 90%!important;
+  }
+
+  input:not([type="file"]), select {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid #d8d2df;
+    border-radius: 8px;
+    background: #fff;
+    color: colors.$text;
+    font: inherit;
+  }
+  
+  input {
+    width: 50%;
+  }
+}
+
+.optional { 
+  color: #756b80; 
+  font-weight: 400; 
+}
+
+.file-field {
+  position: relative;
+  display: grid;
+  gap: 7px;
+  font-size: .9rem;
+  font-weight: 600;
+
+  > span:not(.required) {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-height: 44px;
+    padding: 8px 12px;
+    overflow: hidden;
+    border: 1px dashed #b9aec5;
+    border-radius: 8px;
+    color: colors.$primary-dark;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  input[type="file"] { 
+    position: relative; 
+    inset: 22px 0 0; 
+    width: 100%; 
+    height: 44px; 
+    opacity: 0; cursor: pointer; 
+  }
+}
+
+.cambial {
+  flex-wrap: wrap;
+  gap: 8px 10px;
+
+  label {
+    min-width: 88px;
+    padding: 9px 12px;
+    border: 1px solid #ded8e5;
+    border-radius: 8px;
+  }
+}
+
+.cambial legend { 
+  flex-basis: 100%; 
+}
+
+.submit-row { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 16px; 
+}
+
+.submit-row p { 
+  margin: 0; 
+  color: #756b80; 
+  font-size: .85rem; 
+}
+
+.submit-row button {
+  min-width: 210px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 8px;
+  background: colors.$primary;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+
+  &:disabled { 
+    opacity: .45; 
+    cursor: not-allowed; 
+  }
+}
+
+@media (width <= 760px) { 
+  .form-grid { 
+    grid-template-columns: repeat(2, minmax(0, 1fr)); 
+  } 
+}
+
+@media (width <= 520px) {
+  .form-grid { 
+    grid-template-columns: 1fr; 
+  }
+
+  .submit-row { 
+    align-items: stretch; 
+    flex-direction: column; 
+  }
+
+  .submit-row button { 
+    width: 100%; 
+  }
+}

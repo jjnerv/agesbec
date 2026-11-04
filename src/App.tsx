@@ -4,6 +4,7 @@ import Dashboard from "./pages/Dashboard"
 import './App.css';
 import 'normalize.css';
 import { RequireAuth } from "./shared/routing/RequireAuth";
+import AverbacaoPage from "./pages/averbacao/AverbacaoPage";
 
 export function App() {
   return (
@@ -11,6 +12,7 @@ export function App() {
       <Route path="/login" element={<Login />} />
       <Route element={<RequireAuth />}>
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/averbacao" element={<AverbacaoPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/login" replace />} />
 

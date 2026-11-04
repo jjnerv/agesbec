@@ -21,7 +21,6 @@ function AverbacaoTable({ modal }: { modal: Modal }) {
           <table className={styles.table}> 
             <thead>
               <tr>
-                <th>MODAL</th>
                 <th>DTA</th>
                 <th>DUIMP / DI</th>
                 <th>Razão Social</th>
@@ -36,7 +35,6 @@ function AverbacaoTable({ modal }: { modal: Modal }) {
             <tbody>
               {data.map((averbacao) => (
                 <tr key={averbacao.id}>
-                  <td>{averbacao.modalId}</td>
                   <td>{averbacao.dta}</td>
                   <td>{averbacao.duimp} - {averbacao.di}</td>
                   <td>{averbacao.razao}</td>
